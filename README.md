@@ -2,7 +2,7 @@
 
 Welcome to the **Facebook Clone Course**! In this course, you will master building a feature-rich social media application that closely resembles Facebook (version 2022). You'll gain proficiency in working with cutting-edge technologies, including React.js, Node.js, Express.js, MongoDB, and a host of other tools essential for modern web development.
 
-## Course Highlights
+## Project Highlights
 
 - Build a robust user authentication system, allowing registration, login, and password reset.
 - Implement comprehensive validation using Formik and Yup, complete with user-friendly error messages.
@@ -31,18 +31,6 @@ Welcome to the **Facebook Clone Course**! In this course, you will master buildi
 - Protected routes and global state management using Redux.
 - Utilize cookies and JWTs for temporary data storage.
 - Leverage React hooks and functions for enhanced functionality.
-
-## Course Structure
-
-The course is organized into various sections, each focusing on specific functionalities and technologies. Throughout the course, you'll gain hands-on experience through practical exercises and projects that progressively build your skills.
-
-## Prerequisites
-
-- Familiarity with HTML, CSS, and JavaScript.
-- Basic understanding of React and Node.js concepts.
-- Eagerness to learn and apply new technologies to real-world projects.
-
-By the end of this course, you'll have developed a high-quality Facebook clone that showcases your proficiency in a wide range of web development technologies. Get ready to embark on an exciting journey of learning and creativity!
 
 ## Getting Started
 
