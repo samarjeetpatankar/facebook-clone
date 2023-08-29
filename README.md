@@ -1,6 +1,4 @@
-# Facebook Clone Course (Version 2022)
-
-Welcome to the **Facebook Clone Course**! In this course, you will master building a feature-rich social media application that closely resembles Facebook (version 2022). You'll gain proficiency in working with cutting-edge technologies, including React.js, Node.js, Express.js, MongoDB, and a host of other tools essential for modern web development.
+# Facebook Clone 
 
 ## Project Highlights
 
