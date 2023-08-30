@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Home />} exact />
       </Routes>
     </div>
-  );
+  ); 
 }
 
 export default App;
