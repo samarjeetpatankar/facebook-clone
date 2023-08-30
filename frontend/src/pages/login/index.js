@@ -61,7 +61,7 @@ export default function Login() {
               <button className="blue_btn open_signup">Create Account</button>
             </div>
             <Link to="/" className="sign_extra">
-              <b>Create a Page</b>
+              <b>Create a Page </b>
               for a celebrity, brand or business.
             </Link>
           </div>
