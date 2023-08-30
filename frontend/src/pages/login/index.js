@@ -1,7 +1,7 @@
 import "./style.css";
 import { Formik, Form } from "formik";
 import { Link } from "react-router-dom";
-// import LoginInput from "../../components/inputs/loginInput";
+import LoginInput from "../../components/inputs/loginInput";
 import { useState } from "react";
 const loginInfos = {
   email: "",
@@ -36,7 +36,7 @@ export default function Login() {
               >
                 {(formik) => (
                   <Form>
-                    {/* <LoginInput
+                    <LoginInput
                       type="text"
                       name="email"
                       placeholder="Email address or phone number"
@@ -47,7 +47,7 @@ export default function Login() {
                       name="password"
                       placeholder="Password"
                       onChange={handleLoginChange}
-                    /> */}
+                    />
                     <button type="submit" className="blue_btn">
                       Log In
                     </button>
@@ -71,3 +71,4 @@ export default function Login() {
     </div>
   );
 }
+
