@@ -1,6 +1,7 @@
 import "./style.css";
 import { Formik, Form } from "formik";
 import { Link } from "react-router-dom";
+import * as Yup from "yup";
 import LoginInput from "../../components/inputs/loginInput";
 import { useState } from "react";
 const loginInfos = {
@@ -10,11 +11,17 @@ const loginInfos = {
 export default function Login() {
   const [login, setLogin] = useState(loginInfos);
   const { email, password } = login;
-  console.log(login);
   const handleLoginChange = (e) => {
     const { name, value } = e.target;
     setLogin({ ...login, [name]: value });
   };
+  const loginValidation = Yup.object({
+    email: Yup.string()
+      .required("Email address is required.")
+      .email("Must be a valid email.")
+      .max(100),
+    password: Yup.string().required("Password is required"),
+  });
   return (
     <div className="login">
       <div className="login_wrapper">
@@ -33,6 +40,7 @@ export default function Login() {
                   email,
                   password,
                 }}
+                validationSchema={loginValidation}
               >
                 {(formik) => (
                   <Form>
@@ -47,6 +55,7 @@ export default function Login() {
                       name="password"
                       placeholder="Password"
                       onChange={handleLoginChange}
+                      bottom
                     />
                     <button type="submit" className="blue_btn">
                       Log In
@@ -61,7 +70,7 @@ export default function Login() {
               <button className="blue_btn open_signup">Create Account</button>
             </div>
             <Link to="/" className="sign_extra">
-              <b>Create a Page </b>
+              <b>Create a Page</b>
               for a celebrity, brand or business.
             </Link>
           </div>
@@ -71,4 +80,3 @@ export default function Login() {
     </div>
   );
 }
-
