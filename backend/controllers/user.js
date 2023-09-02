@@ -1,13 +1,13 @@
-const { sendVerificationEmail } = require("../helpers/mailer");
-const { generateToken } = require("../helpers/tokens");
 const {
   validateEmail,
   validateLength,
   validateUsername,
 } = require("../helpers/validation");
 const User = require("../models/User");
-const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
+const { generateToken } = require("../helpers/tokens");
+const { sendVerificationEmail } = require("../helpers/mailer");
 exports.register = async (req, res) => {
   try {
     const {
@@ -87,7 +87,6 @@ exports.register = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 exports.activateAccount = async (req, res) => {
   try {
     const { token } = req.body;
@@ -107,7 +106,6 @@ exports.activateAccount = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
