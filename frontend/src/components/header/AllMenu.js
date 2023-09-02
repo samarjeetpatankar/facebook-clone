@@ -30,7 +30,7 @@ export default function AllMenu() {
                 name={item.name}
                 description={item.description}
                 icon={item.icon}
-                key={i}
+                key={i} 
               />
             ))}
           </div>
