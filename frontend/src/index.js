@@ -11,7 +11,7 @@ import rootReducer from "./reducers";
 const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={store}> 
     <Router>
       <App />
     </Router>
