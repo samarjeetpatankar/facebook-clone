@@ -88,7 +88,7 @@ exports.register = async (req, res) => {
   }
 };
 exports.activateAccount = async (req, res) => {
-  try {
+  try { 
     const { token } = req.body;
     const user = jwt.verify(token, process.env.TOKEN_SECRET);
     const check = await User.findById(user.id);
@@ -131,7 +131,6 @@ exports.login = async (req, res) => {
       last_name: user.last_name,
       token: token,
       verified: user.verified,
-      message: "Register Success ! please activate your email to start",
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
