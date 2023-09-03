@@ -5,6 +5,6 @@ const imageUpload = require("../middlwares/imageUpload");
 
 const router = express.Router();
 
-router.post("/uploadImages",authUser, imageUpload, uploadImages);
+router.post("/uploadImages", authUser, imageUpload, uploadImages);
 
 module.exports = router;
