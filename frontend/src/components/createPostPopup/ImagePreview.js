@@ -26,6 +26,7 @@ export default function ImagePreview({
       <div className="add_pics_wrap">
         <input
           type="file"
+          accept="image/jpeg,image/png,image/gif,image/webp"
           multiple
           hidden
           ref={imageInputRef}
