@@ -20,3 +20,5 @@
 - Protected routes and global state management using Redux.
 - Utilize cookies and JWTs for temporary data storage.
 - Leverage React hooks and functions for enhanced functionality.
+
+
