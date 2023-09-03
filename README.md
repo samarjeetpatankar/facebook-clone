@@ -1,14 +1,5 @@
 # Facebook Clone 
 
-## Project Highlights
-
-- Build a robust user authentication system, allowing registration, login, and password reset.
-- Implement comprehensive validation using Formik and Yup, complete with user-friendly error messages.
-- Validate user inputs, including name length, special characters, email, password, and age verification.
-- Automate username generation while ensuring uniqueness.
-- Develop a mailing system for sending verification links and reset password codes.
-- Construct responsive HTML emails for user communication.
-
 ## Features Implemented
 
 - Home page displaying posts from followed users and friends, sorted by time.
@@ -29,8 +20,3 @@
 - Protected routes and global state management using Redux.
 - Utilize cookies and JWTs for temporary data storage.
 - Leverage React hooks and functions for enhanced functionality.
-
-## Getting Started
-
-To start the course, simply clone this repository and follow the instructions provided in the course materials.
-
