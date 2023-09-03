@@ -15,7 +15,7 @@ export default function Reset() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [visible, setVisible] = useState(0);
-  const [laoding, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [password, setPassword] = useState("");
@@ -83,6 +83,10 @@ export default function Reset() {
             code={code}
             setCode={setCode}
             error={error}
+            setError={setError}
+            setLoading={setLoading}
+            setVisible={setVisible}
+            userInfos={userInfos}
           />
         )}
         {visible === 3 && (
