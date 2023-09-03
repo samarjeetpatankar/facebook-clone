@@ -25,7 +25,7 @@ export default function SearchAccount({
 
       const { data } = await axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/findUser`,
-        { email } 
+        { email }
       );
       setUserInfos(data);
       setVisible(1);
