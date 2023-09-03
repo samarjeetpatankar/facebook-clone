@@ -10,7 +10,7 @@ import PulseLoader from "react-spinners/PulseLoader";
 import { useDispatch } from "react-redux";
 import PostError from "./PostError";
 import dataURItoBlob from "../../helpers/dataURItoBlob";
-import { uplaodImages } from "../../functions/uplaodImages";
+import { uploadImages } from "../../functions/uploadImages";
 export default function CreatePostPopup({ user, setVisible }) {
   const dispatch = useDispatch();
   const popup = useRef(null);
@@ -25,7 +25,7 @@ export default function CreatePostPopup({ user, setVisible }) {
   });
   const postSubmit = async () => {
     if (background) {
-      setLoading(true); 
+      setLoading(true);
       const response = await createPost(
         null,
         background,
@@ -53,12 +53,24 @@ export default function CreatePostPopup({ user, setVisible }) {
       postImages.forEach((image) => {
         formData.append("file", image);
       });
-      const response = await uplaodImages(formData, path, user.token);
-      await createPost(null, null, text, response, user.id, user.token);
+      const response = await uploadImages(formData, path, user.token);
+
+      const res = await createPost(
+        null,
+        null,
+        text,
+        response,
+        user.id,
+        user.token
+      );
       setLoading(false);
-      setText("");
-      setImages("");
-      setVisible(false);
+      if (res === "ok") {
+        setText("");
+        setImages("");
+        setVisible(false);
+      } else {
+        setError(res);
+      }
     } else if (text) {
       setLoading(true);
       const response = await createPost(
@@ -130,6 +142,7 @@ export default function CreatePostPopup({ user, setVisible }) {
             images={images}
             setImages={setImages}
             setShowPrev={setShowPrev}
+            setError={setError}
           />
         )}
         <AddToYourPost setShowPrev={setShowPrev} />
