@@ -102,7 +102,6 @@ export default function Profile({ setVisible }) {
   const getScroll = () => {
     setScrollHeight(window.pageYOffset);
   };
-  console.log(profile);
   return (
     <div className="profile">
       <Header page="profile" />

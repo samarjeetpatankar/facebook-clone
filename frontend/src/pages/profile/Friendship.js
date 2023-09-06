@@ -158,25 +158,29 @@ export default function Friendship({ friendshipp, profileid }) {
           </div>
         )
       )}
-      {friendship?.following ? (
-        <button className="gray_btn" onClick={() => unfollowHandler()}>
-          <img src="../../../icons/follow.png" alt="" />
-          <span>Following</span>
+      <div className="flex">
+        {friendship?.following ? (
+          <button className="gray_btn" onClick={() => unfollowHandler()}>
+            <img src="../../../icons/follow.png" alt="" />
+            <span>Following</span>
+          </button>
+        ) : (
+          <button className="blue_btn" onClick={() => followHandler()}>
+            <img src="../../../icons/follow.png" className="invert" alt="" />
+            <span>Follow</span>
+          </button>
+        )}
+        <button className={friendship?.friends ? "blue_btn" : "gray_btn"}>
+          <img
+            src="../../../icons/message.png"
+            className={friendship?.friends && "invert"}
+            alt=""
+          />
+          <span>Message</span>
         </button>
-      ) : (
-        <button className="blue_btn" onClick={() => followHandler()}>
-          <img src="../../../icons/follow.png" className="invert" alt="" />
-          <span>Follow</span>
-        </button>
-      )}
-      <button className={friendship?.friends ? "blue_btn" : "gray_btn"}>
-        <img
-          src="../../../icons/message.png"
-          className={friendship?.friends && "invert"}
-          alt=""
-        />
-        <span>Message</span>
-      </button>
+      </div>
     </div>
   );
 }
+
+
