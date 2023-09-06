@@ -336,7 +336,7 @@ exports.addFriend = async (req, res) => {
           $push: { followers: sender._id },
         });
         await sender.updateOne({
-          $push: { following: sender._id },
+          $push: { following: receiver._id },
         });
         res.json({ message: "friend request has been sent" });
       } else {
@@ -419,7 +419,7 @@ exports.unfollow = async (req, res) => {
         sender.following.includes(receiver._id)
       ) {
         await receiver.updateOne({
-          $push: { followers: sender._id },
+          $pull: { followers: sender._id },
         });
 
         await sender.updateOne({
