@@ -6,6 +6,8 @@ import { profileReducer } from "../../functions/reducers";
 import Header from "../../components/header";
 import "./style.css";
 import Cover from "./Cover";
+import ProfielPictureInfos from "./ProfielPictureInfos";
+import ProfileMenu from "./ProfileMenu";
 export default function Profile() {
   const { username } = useParams();
   const navigate = useNavigate();
@@ -53,6 +55,8 @@ export default function Profile() {
       <div className="profile_top">
         <div className="profile_container">
           <Cover cover={profile.cover} />
+          <ProfielPictureInfos profile={profile} />
+          <ProfileMenu />
         </div>
       </div>
     </div>
