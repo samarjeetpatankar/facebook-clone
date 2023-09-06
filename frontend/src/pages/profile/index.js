@@ -134,7 +134,7 @@ export default function Profile({ setVisible }) {
                     leftHeight < 1000 &&
                     "scrollFixed showMore"
               }`}
-            >
+            > 
               <div className="profile_left" ref={leftSide}>
                 <Intro
                   detailss={profile.details}
