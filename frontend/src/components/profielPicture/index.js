@@ -32,6 +32,7 @@ export default function ProfilePicture({ username, setShow, pRef, photos }) {
       setImage(event.target.result);
     };
   };
+
   return (
     <div className="blur">
       <input
