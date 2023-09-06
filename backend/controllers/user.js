@@ -7,6 +7,7 @@ const User = require("../models/User");
 const Code = require("../models/Code");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const cloudinary = require("cloudinary");
 const { generateToken } = require("../helpers/tokens");
 const { sendVerificationEmail, sendResetCode } = require("../helpers/mailer");
 const generateCode = require("../helpers/generateCode");
@@ -232,3 +233,14 @@ exports.changePassword = async (req, res) => {
   );
   return res.status(200).json({ message: "ok" });
 };
+
+exports.getProfile = async (req, res) => {
+  try {
+    const { username } = req.params;
+    const profile = await User.find({ username }).select("-password");
+    res.json(profile);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+ 
