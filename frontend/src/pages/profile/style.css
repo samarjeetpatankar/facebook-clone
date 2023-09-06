@@ -256,6 +256,21 @@
   font-weight: 600;
   color: var(--color-secondary);
 }
+.grid2 .active {
+  color: var(--blue-color);
+}
+.othername {
+  color: var(--color-secondary);
+  font-size: 20px;
+}
+.no_posts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--color-secondary);
+}
 /*--Menu-------*/
 @media (max-width: 900px) {
   .profile_w_left {
@@ -277,6 +292,7 @@
   }
   .profile_name {
     padding-bottom: 10px;
+    flex-direction: column;
   }
   .pplumayknow {
     display: none;
