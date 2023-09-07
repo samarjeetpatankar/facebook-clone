@@ -6,7 +6,7 @@ const {
 const User = require("../models/User");
 const Post = require("../models/Post");
 const Code = require("../models/Code");
-const jwt = require("jsonwebtoken"); 
+const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const cloudinary = require("cloudinary");
 const { generateToken } = require("../helpers/tokens");
