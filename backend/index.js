@@ -15,11 +15,6 @@ app.use(
   })
 );
 
-// Define a home route
-router.get('/', (req, res) => {
-  res.send('Welcome to the home page!');
-});
-
 //routes
 readdirSync("./routes").map((r) => app.use("/", require("./routes/" + r)));
 
