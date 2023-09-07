@@ -147,13 +147,17 @@ export default function Post({ post, user, profile }) {
                   return b.count - a.count;
                 })
                 .slice(0, 3)
-                .map(
-                  (react) =>
-                    react.count > 0 && (
-                      <img src={`../../../reacts/${react.react}.svg`} alt="" />
-                    )
+                .map((react) =>
+                  react.count > 0 ? (
+                    <img
+                      key={react.react}
+                      src={`../../../reacts/${react.react}.svg`}
+                      alt=""
+                    />
+                  ) : null
                 )}
           </div>
+
           <div className="reacts_count_num">{total > 0 && total}</div>
         </div>
         <div className="to_right">
@@ -227,7 +231,7 @@ export default function Post({ post, user, profile }) {
       </div>
       <div className="comments_wrap">
         <div className="comments_order"></div>
-        <CreateComment user={user} />
+        <CreateComment user={user} postId={post._id} />
       </div>
       {showMenu && (
         <PostMenu
