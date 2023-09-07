@@ -34,6 +34,7 @@ export default function Header({ page, getAllPosts }) {
   useClickOutside(usermenu, () => {
     setShowUserMenu(false);
   });
+
   return (
     <header>
       <div className="header_left">
@@ -57,7 +58,11 @@ export default function Header({ page, getAllPosts }) {
         </div>
       </div>
       {showSearchMenu && (
-        <SearchMenu color={color} setShowSearchMenu={setShowSearchMenu} />
+        <SearchMenu
+          color={color}
+          setShowSearchMenu={setShowSearchMenu}
+          token={user.token}
+        />
       )}
       <div className="header_middle">
         <Link
