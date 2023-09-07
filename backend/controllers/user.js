@@ -6,8 +6,8 @@ const {
 const User = require("../models/User");
 const Post = require("../models/Post");
 const Code = require("../models/Code");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken"); 
+const bcrypt = require("bcrypt");
 const cloudinary = require("cloudinary");
 const { generateToken } = require("../helpers/tokens");
 const { sendVerificationEmail, sendResetCode } = require("../helpers/mailer");
@@ -75,7 +75,7 @@ exports.register = async (req, res) => {
       { id: user._id.toString() },
       "30m"
     );
-    const url = `/activate/${emailVerificationToken}`;
+    const url = `${process.env.BASE_URL}/activate/${emailVerificationToken}`;
     sendVerificationEmail(user.email, user.first_name, url);
     const token = generateToken({ id: user._id.toString() }, "7d");
     res.send({
@@ -161,7 +161,7 @@ exports.sendVerification = async (req, res) => {
       { id: user._id.toString() },
       "30m"
     );
-    const url = `/activate/${emailVerificationToken}`;
+    const url = `${process.env.BASE_URL}/activate/${emailVerificationToken}`;
     sendVerificationEmail(user.email, user.first_name, url);
     return res.status(200).json({
       message: "Email verification link has been sent to your email.",
