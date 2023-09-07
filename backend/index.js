@@ -17,6 +17,11 @@ app.use(
 //routes
 readdirSync("./routes").map((r) => app.use("/", require("./routes/" + r)));
 
+// Define a home route
+app.get("/", (req, res) => {
+  res.send("Welcome to the Home Page!");
+});
+
 //database
 mongoose
   .connect(process.env.DATABASE_URL, {
@@ -30,3 +35,4 @@ app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}..`);
 });
 
+ 
