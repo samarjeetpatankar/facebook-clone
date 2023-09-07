@@ -19,7 +19,6 @@ export default function Friends({ friends }) {
         {friends &&
           friends.slice(0, 9).map((friend) => (
             <Link
-            key={friend.username}
               to={`/profile/${friend.username}`}
               className="profile_photo_card"
             >
@@ -33,4 +32,3 @@ export default function Friends({ friends }) {
     </div>
   );
 }
-
