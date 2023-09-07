@@ -6,7 +6,7 @@ const { readdirSync } = require("fs");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const app = express();
+const app = express();   
 app.use(express.json());
 const corsOptions = {
   origin: 'http://localhost:3000', // Replace with the actual origin of your front-end application
