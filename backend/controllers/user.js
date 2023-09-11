@@ -16,8 +16,8 @@ const mongoose = require("mongoose");
 exports.register = async (req, res) => {
   try {
     const {
-      first_name,
-      last_name,
+      first_name, 
+      last_name,  
       email,
       password,
       username,
@@ -118,6 +118,16 @@ exports.activateAccount = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+exports.getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find(); 
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to retrieve users' });
+  }
+};
+
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
