@@ -4,8 +4,7 @@ export default function Contact({ user }) {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    // Fetch the user data from your API using the getAllUsers route
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/getAllUsers`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/getProfile`)
       .then((response) => response.json())
       .then((data) => {
         if (Array.isArray(data)) {
