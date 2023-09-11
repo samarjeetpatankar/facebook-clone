@@ -8,7 +8,11 @@ export default function Contact({ user }) {
     fetch(`${process.env.REACT_APP_BACKEND_URL}/getAllUsers`)
       .then((response) => response.json())
       .then((data) => {
-        setUsers(data);
+        if (Array.isArray(data)) {
+          setUsers(data);
+        } else {
+          console.error("Data is not an array: ", data);
+        }
       })
       .catch((error) => {
         console.error("Error fetching users: ", error);
