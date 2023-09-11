@@ -58,3 +58,4 @@ router.get("/getFriendsPageInfos", authUser, getFriendsPageInfos);
 router.get('/getAllUsers', authUser, getAllUsers);
 
 module.exports = router;
+

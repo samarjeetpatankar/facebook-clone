@@ -119,14 +119,7 @@ exports.activateAccount = async (req, res) => {
   }
 };
 
-exports.getAllUsers = async (req, res) => {
-  try {
-    const users = await User.find(); 
-    res.json(users);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to retrieve users' });
-  }
-};
+
 
 exports.login = async (req, res) => {
   try {
@@ -244,6 +237,15 @@ exports.changePassword = async (req, res) => {
     }
   );
   return res.status(200).json({ message: "ok" });
+};
+
+exports.getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find({}).select("first_name last_name username picture");
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
 exports.getProfile = async (req, res) => {
