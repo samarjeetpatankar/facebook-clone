@@ -12,7 +12,7 @@ mongoose.set('strictQuery', false);
 const app = express();
 app.use(express.json());
 const corsOptions = {
-  origin: 'http://localhost:3000', // Replace with the actual origin of your front-end application
+  origin: 'https://facebook-clone-three-pi.vercel.app', // Replace with the actual origin of your front-end application
   optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
