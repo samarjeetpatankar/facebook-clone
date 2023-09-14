@@ -29,7 +29,7 @@ const {
 } = require("../controllers/user");
 const { authUser } = require("../middlwares/auth");
 
-const router = express.Router(); 
+const router = express.Router();
 
 router.post("/register", register);
 router.post("/activate", authUser, activateAccount);
@@ -56,7 +56,6 @@ router.put("/addToSearchHistory", authUser, addToSearchHistory);
 router.get("/getSearchHistory", authUser, getSearchHistory);
 router.put("/removeFromSearch", authUser, removeFromSearch);
 router.get("/getFriendsPageInfos", authUser, getFriendsPageInfos);
-router.get('/getAllUsers', authUser, getAllUsers);
+router.get("/getallUsers", getAllUsers);
 
 module.exports = router;
-

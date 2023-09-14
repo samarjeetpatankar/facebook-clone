@@ -13,6 +13,18 @@ const { generateToken } = require("../helpers/tokens");
 const { sendVerificationEmail, sendResetCode } = require("../helpers/mailer");
 const generateCode = require("../helpers/generateCode");
 const mongoose = require("mongoose");
+
+exports.getAllUsers = async (req, res) => {
+  try {
+    // Query the database to get all user profiles
+    const allUsers = await User.find().select("-password");
+
+    res.json(allUsers);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 exports.register = async (req, res) => {
   try {
     const {
@@ -239,14 +251,6 @@ exports.changePassword = async (req, res) => {
   return res.status(200).json({ message: "ok" });
 };
 
-exports.getAllUsers = async (req, res) => {
-  try {
-    const users = await User.find({}).select("first_name last_name username picture");
-    res.json(users);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
 
 exports.getProfile = async (req, res) => {
   try {
