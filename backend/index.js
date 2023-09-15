@@ -14,7 +14,7 @@ app.use(express.json());
 const corsOptions = {
   origin: 'https://facebook-clone-three-pi.vercel.app', // Replace with the actual origin of your front-end application
   optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
-};
+}; 
 
 app.use(cors(corsOptions));
 app.use(
