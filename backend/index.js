@@ -6,14 +6,13 @@ const { readdirSync } = require("fs");
 const dotenv = require("dotenv");
 dotenv.config();
 
-// Set the 'strictQuery' option to 'false' to suppress the Mongoose deprecation warning
 mongoose.set('strictQuery', false);
 
 const app = express();
 app.use(express.json());
 const corsOptions = {
-  origin: 'https://facebook-clone-three-pi.vercel.app', // Replace with the actual origin of your front-end application
-  optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
+  origin: 'https://facebook-clone-three-pi.vercel.app', 
+  optionsSuccessStatus: 200, 
 }; 
 
 app.use(cors(corsOptions));
