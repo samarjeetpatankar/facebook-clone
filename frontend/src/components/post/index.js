@@ -89,11 +89,11 @@ export default function Post({ post, user, profile }) {
               <div className="updated_p">
                 {post.type === "profilePicture" &&
                   `updated ${
-                    post.user.gender === "male" ? "his" : "her"
+                    post.user.gender === "male" ? "her" : "his"
                   } profile picture`}
                 {post.type === "coverPicture" &&
                   `updated ${
-                    post.user.gender === "male" ? "his" : "her"
+                    post.user.gender === "male" ? "her" : "his"
                   } cover picture`}
               </div>
             </div>
