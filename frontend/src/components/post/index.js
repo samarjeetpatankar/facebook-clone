@@ -33,40 +33,30 @@ export default function Post({ post, user, profile }) {
   };
 
   const reactHandler = async (type) => {
-    // Make a copy of the reacts array
-    let updatedReacts = [...reacts];
-    let index = updatedReacts.findIndex((x) => x.react === type);
-    let index1 = updatedReacts.findIndex((x) => x.react === check);
-
-    if (check === type) {
-      // If the reaction type is the same as the previous one, remove it
-      updatedReacts.splice(index, 1);
+    reactPost(post._id, type, user.token);
+    if (check == type) {
       setCheck();
-    } else {
-      // If the reaction type is different, update the counts
+      let index = reacts.findIndex((x) => x.react == check);
       if (index !== -1) {
-        updatedReacts[index].count++;
+        setReacts([...reacts, (reacts[index].count = --reacts[index].count)]);
+        setTotal((prev) => --prev);
+      }
+    } else {
+      setCheck(type);
+      let index = reacts.findIndex((x) => x.react == type);
+      let index1 = reacts.findIndex((x) => x.react == check);
+      if (index !== -1) {
+        setReacts([...reacts, (reacts[index].count = ++reacts[index].count)]);
+        setTotal((prev) => ++prev);
+        console.log(reacts);
       }
       if (index1 !== -1) {
-        updatedReacts[index1].count--;
+        setReacts([...reacts, (reacts[index1].count = --reacts[index1].count)]);
+        setTotal((prev) => --prev);
+        console.log(reacts);
       }
-      // Add the new reaction type if it doesn't exist
-      if (index === -1) {
-        updatedReacts.push({ react: type, count: 1 });
-      }
-      setCheck(type);
     }
-
-    // Update the state with the new reacts array
-    setReacts(updatedReacts);
-
-    // Update the total count
-    setTotal((prev) => prev + (check === type ? -1 : 1));
-
-    // Perform your other actions as needed
-    reactPost(post._id, type, user.token);
   };
-
   const showMore = () => {
     setCount((prev) => prev + 3);
   };
@@ -87,9 +77,14 @@ export default function Post({ post, user, profile }) {
             <div className="post_profile_name">
               {post.user.first_name} {post.user.last_name}
               <div className="updated_p">
-                {post.type === "profilePicture" && 
-                  `updated their profile picture`}
-                {post.type === "coverPicture" && `updated their cover picture`}
+                {post.type == "profilePicture" &&
+                  `updated ${
+                    post.user.gender === "male" ? "his" : "her"
+                  } profile picture`}
+                {post.type == "coverPicture" &&
+                  `updated ${
+                    post.user.gender === "male" ? "his" : "her"
+                  } cover picture`}
               </div>
             </div>
             <div className="post_profile_privacy_date">

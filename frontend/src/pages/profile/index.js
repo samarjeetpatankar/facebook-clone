@@ -172,7 +172,6 @@ export default function Profile({ getAllPosts }) {
                       {Array.from(new Array(6), (val, i) => i + 1).map(
                         (id, i) => (
                           <Skeleton
-                            key={`skeleton-${i}`}
                             circle
                             height="32px"
                             width="32px"
