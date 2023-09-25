@@ -88,13 +88,8 @@ export default function Post({ post, user, profile }) {
               {post.user.first_name} {post.user.last_name}
               <div className="updated_p">
                 {post.type === "profilePicture" &&
-                  `updated ${
-                    post.user.gender === "male" ? "his" : "her"
-                  } profile picture`}
-                {post.type === "coverPicture" &&
-                  `updated ${
-                    post.user.gender === "male" ? "his" : "her"
-                  } cover picture`}
+                  `updated their profile picture`}
+                {post.type === "coverPicture" && `updated their cover picture`}
               </div>
             </div>
             <div className="post_profile_privacy_date">
