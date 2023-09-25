@@ -11,7 +11,7 @@ mongoose.set('strictQuery', false);
 const app = express();
 app.use(express.json());
 const corsOptions = {
-  origin: 'https://facebook-mern-qce2.onrender.com', 
+  origin: 'https://fb-igs3.onrender.com', 
   optionsSuccessStatus: 200, 
 }; 
 
