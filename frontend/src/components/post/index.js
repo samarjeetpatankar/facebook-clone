@@ -87,7 +87,7 @@ export default function Post({ post, user, profile }) {
             <div className="post_profile_name">
               {post.user.first_name} {post.user.last_name}
               <div className="updated_p">
-                {post.type === "profilePicture" &&
+                {post.type === "profilePicture" && 
                   `updated their profile picture`}
                 {post.type === "coverPicture" && `updated their cover picture`}
               </div>
