@@ -13,23 +13,11 @@ const { generateToken } = require("../helpers/tokens");
 const { sendVerificationEmail, sendResetCode } = require("../helpers/mailer");
 const generateCode = require("../helpers/generateCode");
 const mongoose = require("mongoose");
-
-exports.getAllUsers = async (req, res) => {
-  try {
-    // Query the database to get all user profiles
-    const allUsers = await User.find().select("-password");
-
-    res.json(allUsers);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
 exports.register = async (req, res) => {
   try {
     const {
-      first_name, 
-      last_name,  
+      first_name,
+      last_name,
       email,
       password,
       username,
@@ -87,7 +75,7 @@ exports.register = async (req, res) => {
       { id: user._id.toString() },
       "30m"
     );
-    const url = `${process.env.BASE_URL}/activate/${emailVerificationToken}`; 
+    const url = `${process.env.BASE_URL}/activate/${emailVerificationToken}`;
     sendVerificationEmail(user.email, user.first_name, url);
     const token = generateToken({ id: user._id.toString() }, "7d");
     res.send({
@@ -130,9 +118,6 @@ exports.activateAccount = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
-
-
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -250,7 +235,6 @@ exports.changePassword = async (req, res) => {
   );
   return res.status(200).json({ message: "ok" });
 };
-
 
 exports.getProfile = async (req, res) => {
   try {
