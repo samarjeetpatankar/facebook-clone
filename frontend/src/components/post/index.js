@@ -37,7 +37,7 @@ export default function Post({ post, user, profile }) {
     let updatedReacts = [...reacts];
     let index = updatedReacts.findIndex((x) => x.react === type);
     let index1 = updatedReacts.findIndex((x) => x.react === check);
-  
+
     if (check === type) {
       // If the reaction type is the same as the previous one, remove it
       updatedReacts.splice(index, 1);
@@ -56,17 +56,17 @@ export default function Post({ post, user, profile }) {
       }
       setCheck(type);
     }
-  
+
     // Update the state with the new reacts array
     setReacts(updatedReacts);
-  
+
     // Update the total count
     setTotal((prev) => prev + (check === type ? -1 : 1));
-  
+
     // Perform your other actions as needed
     reactPost(post._id, type, user.token);
   };
-  
+
   const showMore = () => {
     setCount((prev) => prev + 3);
   };
@@ -87,11 +87,11 @@ export default function Post({ post, user, profile }) {
             <div className="post_profile_name">
               {post.user.first_name} {post.user.last_name}
               <div className="updated_p">
-                {post.type == "profilePicture" &&
+                {post.type === "profilePicture" &&
                   `updated ${
                     post.user.gender === "male" ? "his" : "her"
                   } profile picture`}
-                {post.type == "coverPicture" &&
+                {post.type === "coverPicture" &&
                   `updated ${
                     post.user.gender === "male" ? "his" : "her"
                   } cover picture`}
