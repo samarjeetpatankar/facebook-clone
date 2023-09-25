@@ -47,7 +47,7 @@ export default function GenderSelect({ handleRegisterChange, genderError }) {
           ></div>
           {genderError}
         </div>
-      )}
+      )} 
     </div>
   );
 }
