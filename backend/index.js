@@ -11,7 +11,7 @@ mongoose.set('strictQuery', false);
 const app = express();
 app.use(express.json());
 const corsOptions = {
-  origin: 'https://facebook-clone-gamma-five.vercel.app', 
+  origin: 'https://facebook-hptu.onrender.com', 
   optionsSuccessStatus: 200, 
 }; 
 
