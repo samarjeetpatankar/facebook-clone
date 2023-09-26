@@ -70,7 +70,7 @@ export default function LeftHome({ user }) {
       <div className={`fb_copyright ${visible && "relative_fb_copyright"}`}>
         <Link to="/">Privacy </Link>
         <span>. </span>
-        <Link to="/">Terms </Link>
+        <Link to="/">Terms </Link> 
         <span>. </span>
         <Link to="/">Advertising </Link>
         <span>. </span>
