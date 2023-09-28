@@ -25,6 +25,7 @@ const {
   getSearchHistory,
   removeFromSearch,
   getFriendsPageInfos,
+  getAllUsers,
 } = require("../controllers/user");
 const { authUser } = require("../middlwares/auth");
 
@@ -39,6 +40,7 @@ router.post("/sendResetPasswordCode", sendResetPasswordCode);
 router.post("/validateResetCode", validateResetCode);
 router.post("/changePassword", changePassword);
 router.get("/getProfile/:username", authUser, getProfile);
+router.get("/getProfile", authUser, getProfile);
 router.put("/updateProfilePicture", authUser, updateProfilePicture);
 router.put("/updateCover", authUser, updateCover);
 router.put("/updateDetails", authUser, updateDetails);
@@ -54,5 +56,6 @@ router.put("/addToSearchHistory", authUser, addToSearchHistory);
 router.get("/getSearchHistory", authUser, getSearchHistory);
 router.put("/removeFromSearch", authUser, removeFromSearch);
 router.get("/getFriendsPageInfos", authUser, getFriendsPageInfos);
+router.get("/getallUsers", getAllUsers);
 
 module.exports = router;

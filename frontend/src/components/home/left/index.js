@@ -4,7 +4,6 @@ import { left } from "../../../data/home";
 import { Link } from "react-router-dom";
 import { ArrowDown1 } from "../../../svg";
 import { useState } from "react";
-import Shortcut from "./Shortcut";
 export default function LeftHome({ user }) {
   const [visible, setVisible] = useState(false);
   return (
@@ -65,12 +64,12 @@ export default function LeftHome({ user }) {
         <div className="edit_shortcut">Edit</div>
       </div>
       <div className="shortcut_list">
-      {/* commit 5bb9c2c */}
+        
       </div>
       <div className={`fb_copyright ${visible && "relative_fb_copyright"}`}>
         <Link to="/">Privacy </Link>
         <span>. </span>
-        <Link to="/">Terms </Link> 
+        <Link to="/">Terms </Link>
         <span>. </span>
         <Link to="/">Advertising </Link>
         <span>. </span>

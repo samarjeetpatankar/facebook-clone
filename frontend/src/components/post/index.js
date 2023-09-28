@@ -33,30 +33,40 @@ export default function Post({ post, user, profile }) {
   };
 
   const reactHandler = async (type) => {
-    reactPost(post._id, type, user.token);
-    if (check == type) {
+    // Make a copy of the reacts array
+    let updatedReacts = [...reacts];
+    let index = updatedReacts.findIndex((x) => x.react === type);
+    let index1 = updatedReacts.findIndex((x) => x.react === check);
+  
+    if (check === type) {
+      // If the reaction type is the same as the previous one, remove it
+      updatedReacts.splice(index, 1);
       setCheck();
-      let index = reacts.findIndex((x) => x.react == check);
-      if (index !== -1) {
-        setReacts([...reacts, (reacts[index].count = --reacts[index].count)]);
-        setTotal((prev) => --prev);
-      }
     } else {
-      setCheck(type);
-      let index = reacts.findIndex((x) => x.react == type);
-      let index1 = reacts.findIndex((x) => x.react == check);
+      // If the reaction type is different, update the counts
       if (index !== -1) {
-        setReacts([...reacts, (reacts[index].count = ++reacts[index].count)]);
-        setTotal((prev) => ++prev);
-        console.log(reacts);
+        updatedReacts[index].count++;
       }
       if (index1 !== -1) {
-        setReacts([...reacts, (reacts[index1].count = --reacts[index1].count)]);
-        setTotal((prev) => --prev);
-        console.log(reacts);
+        updatedReacts[index1].count--;
       }
+      // Add the new reaction type if it doesn't exist
+      if (index === -1) {
+        updatedReacts.push({ react: type, count: 1 });
+      }
+      setCheck(type);
     }
+  
+    // Update the state with the new reacts array
+    setReacts(updatedReacts);
+  
+    // Update the total count
+    setTotal((prev) => prev + (check === type ? -1 : 1));
+  
+    // Perform your other actions as needed
+    reactPost(post._id, type, user.token);
   };
+  
   const showMore = () => {
     setCount((prev) => prev + 3);
   };
