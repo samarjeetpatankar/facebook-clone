@@ -6,7 +6,7 @@ import LoggedInRoutes from "./routes/LoggedInRoutes";
 import NotLoggedInRoutes from "./routes/NotLoggedInRoutes";
 import { useSelector } from "react-redux";
 import Activate from "./pages/home/activate";
-import Reset from "./pages/reset";
+import Reset from "./pages/reset"; 
 import CreatePostPopup from "./components/createPostPopup";
 import { useEffect, useReducer, useState } from "react";
 import axios from "axios";
