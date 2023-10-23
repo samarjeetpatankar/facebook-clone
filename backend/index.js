@@ -25,6 +25,10 @@ app.use(
 // Routes
 readdirSync("./routes").map((r) => app.use("/", require("./routes/" + r)));
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the home page of your application!");
+});
+
 // Database connection
 mongoose
   .connect(process.env.DATABASE_URL, {
