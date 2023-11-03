@@ -20,7 +20,7 @@ app.use(
   fileUpload({
     useTempFiles: true,
   })
-);
+);  
 
 // Routes
 readdirSync("./routes").map((r) => app.use("/", require("./routes/" + r)));
