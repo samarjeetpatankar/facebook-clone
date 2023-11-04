@@ -56,7 +56,7 @@ function App() {
           setVisible={setVisible}
           posts={posts}
           dispatch={dispatch}
-        />
+        />  
       )}
       <Routes>
         <Route element={<LoggedInRoutes />}>
