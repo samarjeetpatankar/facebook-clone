@@ -6,24 +6,27 @@ const { readdirSync } = require("fs");
 const dotenv = require("dotenv");
 dotenv.config();
 
-mongoose.set('strictQuery', false);
+mongoose.set("strictQuery", false);
 
 const app = express();
 app.use(express.json());
 const corsOptions = {
-  origin: ['http://localhost:3000', 'https://facebook-clone-gamma-five.vercel.app'],
+  origin: [
+    "http://localhost:3000",
+    "https://facebook-clone-gamma-five.vercel.app",
+    "https://facebooksamarjeet.vercel.app",
+  ],
   optionsSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
 
-
 app.use(cors(corsOptions));
-app.use( 
+app.use(
   fileUpload({
     useTempFiles: true,
   })
-);  
+);
 
 // Routes
 readdirSync("./routes").map((r) => app.use("/", require("./routes/" + r)));
